@@ -5,10 +5,10 @@ const Navbar = () => {
     const HOME = 'Evey Hygiene';
 
     return (
-        <nav className='bg-bossanova-200 rounded-md px-2 py-3 flex justify-between'>
+        <nav className='bg-bossanova-200 rounded-md md:px-2 md:py-3 md:flex md:justify-between'>
             <a href=''>{HOME}</a>
-            <ul className='flex justify-evenly gap-12'>
-                {ITEMS.map((item,index) => <li key={`${index}-${item}`}><a className='block hover:bg-purple-600' href=''>{item}</a></li>)}
+            <ul className='flex flex-col gap-2 md:flex-row md:justify-evenly md:gap-12'>
+                {ITEMS.map((item,index) => <li key={`${index}-${item}`}><PrimaryButton>{item}</PrimaryButton></li>)}
             </ul>
         </nav>
     );

@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 
 const Header = () => {
-    return <div className="col-[1/12]"><Navbar /></div>;
+    return <div className="md:col-[1/13]"><Navbar /></div>;
 };
 
 export default Header;
