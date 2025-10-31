@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='h-dvh'>
-          <div className="grid grid-cols-1 px-2 py-2 md:grid-cols-12 h-screen md:px-50 md:py-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 px-2 py-2 md:grid-cols-12 h-screen md:px-50 md:py-4">
               <Header />
               {children}
               <Footer />
