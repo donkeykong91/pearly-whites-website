@@ -1,14 +1,23 @@
-import './globals.css'
-import { ReactNode } from 'react'
-import Header from '@/components/ui/Header'
-import Footer from '@/components/ui/Footer'
+import './globals.css';
+import { ReactNode } from 'react';
+import Header from '@/components/ui/Header';
+import Footer from '@/components/ui/Footer';
 
 export const metadata = {
   title: 'Pearly Whites',
   description: 'BRUSH YO GODDAM TEEF!',
+};
+
+interface RootLayout {
+  children: ReactNode;
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+/**
+ * The main layout for the website.
+ * @param children Takes all pages.
+ * @constructor
+ */
+const RootLayout = ({ children }: RootLayout) => {
   return (
     <html lang="en">
       <body className="h-dvh">
@@ -19,5 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </div>
       </body>
     </html>
-  )
-}
+  );
+};
+
+export default RootLayout;

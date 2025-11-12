@@ -1,9 +1,9 @@
-import { FlatCompat } from '@eslint/eslintrc'
+import { FlatCompat } from '@eslint/eslintrc';
 
 const compat = new FlatCompat({
   // import.meta.dirname is available after Node.js v20.11.0
   baseDirectory: import.meta.dirname,
-})
+});
 
 const eslintConfig = [
   ...compat.config({
@@ -20,7 +20,6 @@ const eslintConfig = [
         'error',
         {
           trailingComma: 'all',
-          semi: false,
           tabWidth: 2,
           singleQuote: true,
           printWidth: 80,
@@ -41,6 +40,6 @@ const eslintConfig = [
       'jsx-a11y/role-supports-aria-props': 'warn',
     },
   }),
-]
+];
 
-export default eslintConfig
+export default eslintConfig;
