@@ -22,8 +22,8 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuClicked((prev) => !prev);
 
   return (
-    <nav className="group hover:shadow-bossanova-800 bg-bossanova-200 md:hover:bg-bossanova-100 outline-bossanova-600 relative flex flex-row-reverse justify-between rounded-lg px-2 pt-2 pb-2 shadow-lg outline-3 transition md:flex-row md:py-3">
-      <button className="bg-bossanova-300 text-bossanova-800 group-hover:bg-bossanova-50 ml-3 w-full rounded-md px-3 py-1 font-bold text-nowrap outline-3 transition duration-300 md:w-fit md:hover:bg-purple-300">
+    <nav className="group hover:shadow-bossanova-800 bg-bossanova-200 md:hover:bg-bossanova-100 outlin-bossanova-600 outline-bossanova-600 relative grid grid-cols-[1fr_10fr] justify-between rounded-lg px-2 pt-2 pb-2 shadow-lg outline-3 transition sm:flex sm:flex-row-reverse md:flex-row md:py-3">
+      <button className="bg-bossanova-300 text-bossanova-800 group-hover:bg-bossanova-50 col-[2/3] w-full rounded-md px-3 py-1 font-bold text-nowrap outline-3 transition duration-300 sm:ml-2 md:w-fit md:hover:bg-purple-300">
         {HOME}
       </button>
       <ul className="hidden gap-8 2xl:flex">
@@ -34,7 +34,7 @@ const Navbar = () => {
         ))}
       </ul>
       <button
-        className={`transition-transform ${isMenuClicked ? 'rotate-180' : 'rotate-360'} 2xl:hidden`}
+        className={`row-[1/2] justify-self-center transition-transform ${isMenuClicked ? 'rotate-180' : 'rotate-360'} 2xl:hidden`}
         onClick={toggleMenu}
       >
         {isMenuClicked ? (
@@ -69,8 +69,21 @@ const Navbar = () => {
           </svg>
         )}
       </button>
+      {isMenuClicked && (
+        <div
+          className={`col-[1/3] overflow-hidden px-2 md:hidden ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
+        >
+          <ul className="items-center space-y-4 py-4">
+            {ITEMS.map((item, index) => (
+              <li key={`${index}-${item}`}>
+                <PrimaryButton>{item}</PrimaryButton>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       <div
-        className={`border-bossanova-300 bg-bossanova-200 outline-bossanova-600 absolute top-full right-0 w-fit origin-top overflow-hidden rounded-md border-t px-2 outline-3 transition-all duration-300 ease-in-out ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
+        className={`border-bossanova-300 bg-bossanova-200 outline-bossanova-600 top-full right-0 hidden w-fit origin-top overflow-hidden rounded-md border-t px-2 outline-3 transition-all duration-300 ease-in-out md:absolute md:block ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
       >
         <ul className="items-center space-y-4 py-4">
           {ITEMS.map((item, index) => (
