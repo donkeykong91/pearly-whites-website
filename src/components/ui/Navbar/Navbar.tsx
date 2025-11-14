@@ -15,7 +15,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuClicked((prev) => !prev);
 
   return (
-    <nav className="group hover:shadow-bossanova-800 bg-bossanova-200 md:hover:bg-bossanova-100 outlin-bossanova-600 outline-bossanova-600 relative grid grid-cols-[1fr_10fr] justify-between rounded-lg px-2 pt-2 pb-2 shadow-lg outline-3 transition md:flex md:py-3">
+    <nav className="group hover:shadow-bossanova-800 bg-bossanova-200 md:hover:bg-bossanova-100 outlin-bossanova-600 outline-bossanova-600 relative grid grid-cols-[1fr_10fr] justify-between gap-2 rounded-lg px-2 pt-2 pb-2 shadow-lg outline-3 transition md:flex md:py-3">
       <HomeButton />
       <MenuBar />
       <MenuButton toggleMenu={toggleMenu} isMenuClicked={isMenuClicked} />
