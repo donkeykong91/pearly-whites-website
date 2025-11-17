@@ -12,7 +12,7 @@ interface MenuButton {
 export const MenuButton = ({ toggleMenu, isMenuClicked }: MenuButton) => {
   return (
     <button
-      className={`row-[1/2] justify-self-center transition-transform ${isMenuClicked ? 'rotate-180' : 'rotate-360'} 2xl:hidden`}
+      className={`row-[1/2] cursor-pointer justify-self-center transition-transform ${isMenuClicked ? 'rotate-180' : 'rotate-360'} 2xl:hidden`}
       onClick={toggleMenu}
     >
       {isMenuClicked ? (
