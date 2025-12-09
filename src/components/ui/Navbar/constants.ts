@@ -1,8 +1,8 @@
 export const ITEMS = [
   'About',
-  'Services',
+  // 'Services', // Uncomment when ready
   'Certifications',
   'Contact',
   'Clinical Skills',
-  'Education',
+  // 'Education',  // Not sure if needed
 ];
