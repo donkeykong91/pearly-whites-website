@@ -6,12 +6,10 @@ import Card from './Card';
  */
 const Details = () => {
   const TITLE = 'Dental Hygiene';
-  const DETAILS = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+  const DETAILS = `Dental hygiene is the science — and daily practice — of keeping your mouth healthy so your smile lasts a lifetime. It goes far beyond “clean teeth,” focusing on preventing gum disease, protecting overall health, and catching problems long before they become painful or expensive. It’s a partnership between you and your hygienist to keep your teeth, gums, and confidence in peak shape. Think of it as preventive care that gives you a brighter smile and a healthier you.`;
 
   return (
-    <div className="grid sm:grid-cols-4">
-      <Card title={TITLE} details={DETAILS} />
-    </div>
+    <Card title={TITLE} details={DETAILS} classNames="sm:translate-x-1/2" />
   );
 };
 

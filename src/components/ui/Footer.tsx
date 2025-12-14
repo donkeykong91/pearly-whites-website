@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <div
-      className={`transform self-end transition-all duration-700 ease-out sm:col-[1/4] md:col-[1/13] ${visible ? 'opacity-100' : 'opacity-0'}`}
+      className={`flex w-full transform justify-center transition-all duration-700 ease-out sm:px-3 sm:pb-3 ${visible ? 'opacity-80' : 'opacity-0'}`}
     >
       <FooterBar />
     </div>

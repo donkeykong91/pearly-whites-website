@@ -17,11 +17,11 @@ const Header = () => {
   }, []);
 
   return (
-    <div
-      className={`transform transition-all duration-700 ease-out sm:col-[1/4] md:col-[1/13] ${visible ? 'opacity-100' : 'opacity-0'}`}
+    <header
+      className={`flex w-full transform justify-center transition-all duration-700 ease-out sm:px-3 sm:pt-3 ${visible ? 'opacity-80 hover:opacity-100' : 'opacity-0'}`}
     >
       <Navbar />
-    </div>
+    </header>
   );
 };
 
