@@ -1,19 +1,28 @@
 'use client';
 import Details from '@/components/ui/Details';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const IntroPage = () => {
   const [visible, setVisible] = useState(false);
+  const [ready, setReady] = useState(false);
+  const pathName = usePathname();
 
   // Slide-fade-in animation effect
-  useEffect(() => {
-    const timeout = setTimeout(() => setVisible(true), 500);
-    return () => clearTimeout(timeout);
-  }, []);
+  useLayoutEffect(() => {
+    if (pathName === '/') {
+      setReady(false);
+      setVisible(false);
+      requestAnimationFrame(() => {
+        setReady(true);
+        setVisible(true);
+      });
+    }
+  }, [pathName]);
 
   return (
     <div
-      className={`transform-all self-center transition duration-700 ease-out ${visible ? 'opacity-100 md:translate-y-0' : 'opacity-0 md:-translate-y-10'}`}
+      className={`self-center ${visible ? 'opacity-100 md:translate-y-0' : 'opacity-0 md:-translate-y-10'} ${ready ? 'transition duration-700 ease-out' : 'transition-none'}`}
     >
       <Details />
     </div>
