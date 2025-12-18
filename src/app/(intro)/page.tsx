@@ -7,7 +7,9 @@ const IntroPage = () => {
   const [visible, setVisible] = useState(false);
   const [ready, setReady] = useState(false);
   const [animate, setAnimate] = useState(false);
+
   const pathName = usePathname();
+  const isRunnable = visible && animate;
 
   // Slide-fade-in animation effect
   useLayoutEffect(() => {
@@ -31,7 +33,7 @@ const IntroPage = () => {
 
   return (
     <div
-      className={`self-center ${visible && animate ? 'opacity-100 md:translate-y-0' : 'opacity-0 md:-translate-y-10'} ${ready ? 'transition duration-700 ease-out' : 'transition-none'}`}
+      className={`self-center ${isRunnable ? 'opacity-100 md:translate-y-0' : 'opacity-0 md:-translate-y-10'} ${ready ? 'transition duration-700 ease-out' : 'transition-none'}`}
     >
       <Details />
     </div>
