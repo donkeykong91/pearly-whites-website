@@ -1,9 +1,14 @@
 import { cn } from '@/components/ui/utils/cn';
+import { ReactElement } from 'react';
 
 interface Card {
-  title: string;
-  details: string;
+  title: string | ReactElement;
+  details: string | ReactElement;
   classNames?: string;
+  headerClassNames?: string;
+  detailsClassNames?: string;
+  subHeader?: string | ReactElement;
+  smallLine?: ReactElement | null;
 }
 
 /**
@@ -11,9 +16,26 @@ interface Card {
  * @param title The title of the Card.
  * @param details The detail of the Card.
  * @param classNames The optional styles passed-in from parent component.
+ * @param headerClassNames The optional styles passed-in from parent component for header.
+ * @param detailsClassNames The optional styles passed-in from parent component for details.
+ * @param subHeader Smaller header under the header.
  * @constructor
  */
-const Card = ({ title, details, classNames = '' }: Card) => {
+const Card = ({
+  title,
+  details,
+  classNames = '',
+  headerClassNames = '',
+  detailsClassNames = '',
+  subHeader = '',
+  smallLine = null,
+}: Card) => {
+  const hasSubHeader = !!subHeader;
+  const withSubHeader = !hasSubHeader && 'border-b-2';
+  const showSubHeader = hasSubHeader && (
+    <div className={'border-b-bossanova-500 border-b-2'}>{subHeader}</div>
+  );
+
   return (
     <div
       className={cn(
@@ -21,12 +43,22 @@ const Card = ({ title, details, classNames = '' }: Card) => {
         classNames,
       )}
     >
-      <header className="border-b-bossanova-500 border-b-2 text-center text-2xl">
+      <header
+        className={cn(
+          `border-b-bossanova-500 ${withSubHeader} text-center text-2xl`,
+          headerClassNames,
+        )}
+      >
         {title}
       </header>
-      <div className="pt-4 md:text-center">
+
+      {showSubHeader}
+
+      <div className={cn('pt-4 text-center', detailsClassNames)}>
         <article className="px-2">{details}</article>
       </div>
+
+      {smallLine || null}
     </div>
   );
 };
