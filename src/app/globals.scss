@@ -60,23 +60,23 @@ body {
     "Trebuchet MS",
     sans-serif;
   letter-spacing: 0.01em;
-  cursor: url('/tooth-cursor.svg') 16 4, auto;
+  cursor: url('../../public/tooth-cursor.svg') 16 4, auto;
 }
 
 @keyframes sparkle-cursor {
   0%,
   33% {
-    cursor: url('/tooth-cursor-sparkle.svg') 16 4, pointer;
+    cursor: url('../../public/tooth-cursor-sparkle.svg') 16 4, pointer;
   }
 
   34%,
   66% {
-    cursor: url('/tooth-cursor-sparkle-alt.svg') 16 4, pointer;
+    cursor: url('../../public/tooth-cursor-sparkle-alt.svg') 16 4, pointer;
   }
 
   67%,
   100% {
-    cursor: url('/tooth-cursor-sparkle-alt2.svg') 16 4, pointer;
+    cursor: url('../../public/tooth-cursor-sparkle-alt2.svg') 16 4, pointer;
   }
 }
 
@@ -147,7 +147,7 @@ button,
 input[type="button"],
 input[type="submit"],
 [role="button"] {
-  cursor: url('/tooth-cursor-sparkle.svg') 16 4, pointer;
+  cursor: url('../../public/tooth-cursor-sparkle.svg') 16 4, pointer;
   animation: sparkle-cursor 450ms steps(1, end) infinite;
 }
 
@@ -156,7 +156,7 @@ button:active,
 input[type="button"]:active,
 input[type="submit"]:active,
 [role="button"]:active {
-  cursor: url('/tooth-cursor-click.svg') 16 4, pointer;
+  cursor: url('../../public/tooth-cursor-click.svg') 16 4, pointer;
   animation: none;
 }
 
