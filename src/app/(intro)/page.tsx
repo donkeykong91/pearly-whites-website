@@ -1,12 +1,11 @@
 'use client';
 import Details from '@/components/ui/Details';
-import { useSiteEntrance } from '../../components/ui/SiteEntranceContext';
 import Image from 'next/image';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const ITEM_DELAY_MS = 500;
 const INTRO_ITEM_COUNT = 2;
-const INTRO_SAFETY_START_MS = 2800;
+const INTRO_START_DELAY_MS = 2000;
 
 /**
  * Landing page content with a one-time intro animation on the home route.
@@ -14,26 +13,9 @@ const INTRO_SAFETY_START_MS = 2800;
 const IntroPage = () => {
   const [visibleCount, setVisibleCount] = useState(0);
   const [isAnimationReady, setIsAnimationReady] = useState(false);
-  const [isForcedStart, setIsForcedStart] = useState(false);
-  const { isEntranceDone } = useSiteEntrance();
-  const canStartIntro = isEntranceDone || isForcedStart;
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setIsForcedStart(true);
-    }, INTRO_SAFETY_START_MS);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
 
   // Stagger page items so each next item appears 1 second later.
   useLayoutEffect(() => {
-    if (!canStartIntro) {
-      setIsAnimationReady(false);
-      setVisibleCount(0);
-      return;
-    }
-
     setIsAnimationReady(false);
     setVisibleCount(0);
     let currentCount = 0;
@@ -53,13 +35,13 @@ const IntroPage = () => {
           intervalId = null;
         }
       }, ITEM_DELAY_MS);
-    }, 120);
+    }, INTRO_START_DELAY_MS);
 
     return () => {
       clearTimeout(timeoutId);
       if (intervalId) clearInterval(intervalId);
     };
-  }, [canStartIntro]);
+  }, []);
 
   return (
     <div className="col-[1/5] flex w-full justify-center self-center">
