@@ -1,6 +1,6 @@
 import './globals.scss';
 import { ReactNode } from 'react';
-import SiteShell from '@/components/ui/SiteShell';
+import SiteShell from '../components/ui/SiteShell';
 
 interface RootLayout {
   children: ReactNode;
