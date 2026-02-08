@@ -104,6 +104,18 @@ body {
   }
 }
 
+@keyframes intro-drop-in {
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .cursor-firework {
   background: radial-gradient(
     circle,
@@ -142,6 +154,20 @@ body {
   animation: cursor-firework-sparks 520ms ease-out forwards;
 }
 
+.intro-drop-item {
+  transform: translateY(-2rem);
+  opacity: 0;
+  animation: intro-drop-in 700ms ease-out forwards;
+}
+
+.intro-drop-item--first {
+  animation-delay: 2000ms;
+}
+
+.intro-drop-item--second {
+  animation-delay: 2500ms;
+}
+
 a,
 button,
 input[type="button"],
@@ -171,5 +197,11 @@ input[type="submit"]:active,
 
   .cursor-firework {
     display: none;
+  }
+
+  .intro-drop-item {
+    transform: none;
+    opacity: 1;
+    animation: none;
   }
 }
