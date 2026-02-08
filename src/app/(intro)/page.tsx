@@ -51,21 +51,6 @@ const IntroPage = () => {
         >
           <Details className="sm:translate-x-0" />
         </div>
-
-        <div
-          className={`flex justify-center ${isAnimationReady ? 'transition duration-700 ease-out' : 'transition-none'} ${visibleCount >= 2 ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}
-        >
-          <div className="border-surface-border bg-surface shadow-bossanova-300/35 overflow-hidden rounded-2xl border shadow-lg backdrop-blur-sm">
-            <Image
-              src="/waiting-room.png"
-              alt="Dental office waiting room"
-              width={460}
-              height={320}
-              priority
-              className="h-auto w-full max-w-[460px] object-cover"
-            />
-          </div>
-        </div>
       </div>
     </div>
   );
