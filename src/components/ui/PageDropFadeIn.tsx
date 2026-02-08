@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useLayoutEffect, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 interface PageDropFadeInProps {
@@ -19,23 +19,40 @@ const PageDropFadeIn = ({
   disableOnPaths = [],
   isEnabled = true,
 }: PageDropFadeInProps) => {
-  const [visible, setVisible] = useState(false);
-  const [ready, setReady] = useState(false);
-  const [animate, setAnimate] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [ready, setReady] = useState(true);
+  const [animate, setAnimate] = useState(true);
   const pathname = usePathname();
-  const shouldSkipAnimation = disableOnPaths.includes(pathname);
+  const normalizedPathname = useMemo(() => {
+    if (!pathname) return pathname;
+    if (pathname === '/') return '/';
+    return pathname.replace(/\/+$/, '');
+  }, [pathname]);
+
+  const normalizedDisabledPaths = useMemo(
+    () =>
+      disableOnPaths.map((path) => {
+        if (path === '/') return '/';
+        return path.replace(/\/+$/, '');
+      }),
+    [disableOnPaths],
+  );
+
+  const shouldSkipAnimation =
+    !isEnabled ||
+    normalizedPathname === null ||
+    normalizedPathname === undefined ||
+    normalizedDisabledPaths.includes(normalizedPathname);
 
   const isRunnable = visible && animate;
 
-  useLayoutEffect(() => {
-    if (!isEnabled) {
-      setAnimate(false);
-      setReady(false);
-      setVisible(false);
+  useEffect(() => {
+    if (shouldSkipAnimation) {
+      setAnimate(true);
+      setReady(true);
+      setVisible(true);
       return;
     }
-
-    if (shouldSkipAnimation) return;
 
     setAnimate(false);
     setReady(false);
@@ -45,13 +62,16 @@ const PageDropFadeIn = ({
       setAnimate(true);
     }, 120);
 
-    requestAnimationFrame(() => {
+    const rafId = requestAnimationFrame(() => {
       setReady(true);
       setVisible(true);
     });
 
-    return () => clearTimeout(timeout);
-  }, [pathname, shouldSkipAnimation, isEnabled]);
+    return () => {
+      clearTimeout(timeout);
+      cancelAnimationFrame(rafId);
+    };
+  }, [normalizedPathname, shouldSkipAnimation]);
 
   if (shouldSkipAnimation) {
     return <div className={className}>{children}</div>;
