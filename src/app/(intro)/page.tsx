@@ -3,7 +3,6 @@ import Details from '@/components/ui/Details';
 import { useSiteEntrance } from '../../components/ui/SiteEntranceContext';
 import Image from 'next/image';
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
 
 const ITEM_DELAY_MS = 500;
 const INTRO_ITEM_COUNT = 2;
@@ -16,7 +15,6 @@ const IntroPage = () => {
   const [visibleCount, setVisibleCount] = useState(0);
   const [isAnimationReady, setIsAnimationReady] = useState(false);
   const [isForcedStart, setIsForcedStart] = useState(false);
-  const pathName = usePathname();
   const { isEntranceDone } = useSiteEntrance();
   const canStartIntro = isEntranceDone || isForcedStart;
 
@@ -30,7 +28,7 @@ const IntroPage = () => {
 
   // Stagger page items so each next item appears 1 second later.
   useLayoutEffect(() => {
-    if (!canStartIntro || pathName !== '/') {
+    if (!canStartIntro) {
       setIsAnimationReady(false);
       setVisibleCount(0);
       return;
@@ -61,7 +59,7 @@ const IntroPage = () => {
       clearTimeout(timeoutId);
       if (intervalId) clearInterval(intervalId);
     };
-  }, [canStartIntro, pathName]);
+  }, [canStartIntro]);
 
   return (
     <div className="col-[1/5] flex w-full justify-center self-center">
