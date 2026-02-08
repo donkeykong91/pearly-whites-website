@@ -83,13 +83,11 @@ const SiteShell = ({ children }: SiteShellProps) => {
           className={`transition-transform duration-[1800ms] ease-out ${isSpreadStarted ? 'translate-y-0' : 'translate-y-[calc(50vh-3rem)]'}`}
         />
 
-        <main
-          className={`flex flex-1 py-6 transition-opacity duration-500 ${isEntranceDone ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
-        >
+        <main className="flex flex-1 py-6">
           <PageDropFadeIn
             className="flex w-full flex-1 flex-col"
             disableOnPaths={['/']}
-            isEnabled={isEntranceDone}
+            isEnabled
           >
             {children}
           </PageDropFadeIn>

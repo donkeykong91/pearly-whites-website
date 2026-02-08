@@ -155,17 +155,22 @@ body {
 }
 
 .intro-drop-item {
-  transform: translateY(-2rem);
-  opacity: 0;
-  animation: intro-drop-in 700ms ease-out forwards;
+  transform: none;
+  opacity: 1;
 }
 
-.intro-drop-item--first {
-  animation-delay: 2000ms;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .intro-drop-item {
+    animation: intro-drop-in 700ms ease-out both;
+  }
 
-.intro-drop-item--second {
-  animation-delay: 2500ms;
+  .intro-drop-item--first {
+    animation-delay: 2000ms;
+  }
+
+  .intro-drop-item--second {
+    animation-delay: 2500ms;
+  }
 }
 
 a,
