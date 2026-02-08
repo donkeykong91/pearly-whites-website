@@ -2,11 +2,12 @@
 import Details from '@/components/ui/Details';
 import { useSiteEntrance } from '../../components/ui/SiteEntranceContext';
 import Image from 'next/image';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const ITEM_DELAY_MS = 500;
 const INTRO_ITEM_COUNT = 2;
+const INTRO_SAFETY_START_MS = 2800;
 
 /**
  * Landing page content with a one-time intro animation on the home route.
@@ -14,12 +15,22 @@ const INTRO_ITEM_COUNT = 2;
 const IntroPage = () => {
   const [visibleCount, setVisibleCount] = useState(0);
   const [isAnimationReady, setIsAnimationReady] = useState(false);
+  const [isForcedStart, setIsForcedStart] = useState(false);
   const pathName = usePathname();
   const { isEntranceDone } = useSiteEntrance();
+  const canStartIntro = isEntranceDone || isForcedStart;
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsForcedStart(true);
+    }, INTRO_SAFETY_START_MS);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   // Stagger page items so each next item appears 1 second later.
   useLayoutEffect(() => {
-    if (!isEntranceDone || pathName !== '/') {
+    if (!canStartIntro || pathName !== '/') {
       setIsAnimationReady(false);
       setVisibleCount(0);
       return;
@@ -50,7 +61,7 @@ const IntroPage = () => {
       clearTimeout(timeoutId);
       if (intervalId) clearInterval(intervalId);
     };
-  }, [isEntranceDone, pathName]);
+  }, [canStartIntro, pathName]);
 
   return (
     <div className="col-[1/5] flex w-full justify-center self-center">

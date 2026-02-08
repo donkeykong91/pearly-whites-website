@@ -18,6 +18,7 @@ const HEADER_REVEAL_START_DELAY_MS = 120;
 const HEADER_ITEM_STAGGER_MS = 180;
 const FOOTER_CONTENT_DELAY_MS = 80;
 const CONTENT_REVEAL_DELAY_MS = 500;
+const ENTRANCE_SAFETY_TIMEOUT_MS = 2600;
 const TOTAL_HEADER_ITEMS = ITEMS.length + 2;
 
 /**
@@ -56,12 +57,18 @@ const SiteShell = ({ children }: SiteShellProps) => {
     const doneTimeoutId = setTimeout(() => {
       setIsEntranceDone(true);
     }, SHELL_SPREAD_DURATION_MS + CONTENT_REVEAL_DELAY_MS);
+    const safetyTimeoutId = setTimeout(() => {
+      setIsEntranceDone(true);
+      setShowHeaderContent(true);
+      setShowFooterContent(true);
+    }, ENTRANCE_SAFETY_TIMEOUT_MS);
 
     return () => {
       cancelAnimationFrame(rafId);
       clearTimeout(headerStartTimeoutId);
       clearTimeout(footerContentTimeoutId);
       clearTimeout(doneTimeoutId);
+      clearTimeout(safetyTimeoutId);
       if (headerIntervalId) clearInterval(headerIntervalId);
     };
   }, []);
