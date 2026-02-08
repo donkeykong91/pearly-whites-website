@@ -1,6 +1,6 @@
 'use client';
 import Details from '@/components/ui/Details';
-import { useSiteEntrance } from '@/components/ui/SiteEntranceContext';
+import { useSiteEntrance } from '../../components/ui/SiteEntranceContext';
 import Image from 'next/image';
 import { useLayoutEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
