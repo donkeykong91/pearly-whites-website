@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="toothFillSparkleAlt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5f0ff"/>
+    </linearGradient>
+  </defs>
+  <path
+    d="M16 3c-4.9 0-8.6 2.5-8.6 7 0 3.6 1.9 7.8 3.3 10.2.9 1.6 1.2 3.6 1.4 5 .2 1.5 1.2 2.8 2.7 2.8 1.8 0 2.7-1.4 3.2-3.3l.8-3.1.8 3.1c.5 1.9 1.4 3.3 3.2 3.3 1.5 0 2.5-1.3 2.7-2.8.2-1.4.5-3.4 1.4-5 1.4-2.4 3.3-6.6 3.3-10.2 0-4.5-3.7-7-8.6-7-2.2 0-3.6 1.1-4.2 1.7C19.6 4.1 18.2 3 16 3z"
+    fill="url(#toothFillSparkleAlt)"
+    stroke="#7f63ab"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <circle cx="12.3" cy="12.4" r="1.15" fill="#7f63ab"/>
+  <circle cx="19.7" cy="12.4" r="1.15" fill="#7f63ab"/>
+  <path d="M12.8 16.5c1 .8 2 1.2 3.2 1.2s2.2-.4 3.2-1.2" fill="none" stroke="#7f63ab" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M25.5 2.9l1.05 2.6 2.7 1.05-2.7 1.05-1.05 2.6-1.05-2.6-2.6-1.05 2.6-1.05 1.05-2.6z" fill="#ffd977" stroke="#7f63ab" stroke-width=".75" stroke-linejoin="round"/>
+  <path d="M22.5 9.2l.58 1.4 1.45.58-1.45.58-.58 1.4-.58-1.4-1.4-.58 1.4-.58.58-1.4z" fill="#fff2b3" stroke="#7f63ab" stroke-width=".58" stroke-linejoin="round"/>
+  <path d="M29.3 8.6l.4 1.05 1.05.4-1.05.4-.4 1.05-.4-1.05-1.05-.4 1.05-.4.4-1.05z" fill="#fff6cf" stroke="#7f63ab" stroke-width=".45" stroke-linejoin="round"/>
+</svg>
