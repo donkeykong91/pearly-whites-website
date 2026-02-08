@@ -1,3 +1,6 @@
+/**
+ * Tailwind content paths for class scanning.
+ */
 const config = {
   content: [
     './src/app/**/*.{js,ts,jsx,tsx}',

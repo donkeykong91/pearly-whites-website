@@ -4,6 +4,9 @@ interface AboutLayout {
   children: ReactNode;
 }
 
+/**
+ * Layout shell for the about route.
+ */
 const AboutLayout = ({ children }: AboutLayout) => {
   return (
     <section className="flex flex-1 flex-col">

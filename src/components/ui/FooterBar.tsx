@@ -1,13 +1,20 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 /**
  * Displays a simple copyright and owner name.
- * @constructor
  */
 const FooterBar = () => {
-  const ALL_RIGHTS_RESERVED = '© 2025 Evelyn Contreras. All rights reserved.';
+  const [currentYear, setCurrentYear] = useState<string>('');
+
+  useEffect(() => {
+    setCurrentYear(String(new Date().getFullYear()));
+  }, []);
 
   return (
-    <footer className="bg-bossanova-200 outline-bossanova-600 flex w-full max-w-7xl justify-center outline-3 sm:rounded-md md:px-2 md:py-3">
-      {ALL_RIGHTS_RESERVED}
+    <footer className="text-bossanova-900 flex w-full items-center justify-center px-3 py-3 text-center text-sm font-medium tracking-wide">
+      {'\u00A9'} {currentYear || '----'} Evelyn Contreras. All rights reserved.
     </footer>
   );
 };

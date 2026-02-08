@@ -19,6 +19,7 @@ interface Card {
  * @param headerClassNames The optional styles passed-in from parent component for header.
  * @param detailsClassNames The optional styles passed-in from parent component for details.
  * @param subHeader Smaller header under the header.
+ * @param smallLine Small stylistic line at the bottom of the card.
  * @constructor
  */
 const Card = ({
@@ -31,15 +32,24 @@ const Card = ({
   smallLine = null,
 }: Card) => {
   const hasSubHeader = !!subHeader;
-  const withSubHeader = !hasSubHeader && 'border-b-2';
+  const withSubHeader =
+    !hasSubHeader &&
+    'after:bg-bossanova-500 border-b-2 after:block after:h-1 after:w-0 after:transition-all hover:after:w-16';
+  // TODO: Maybe turn this into component
   const showSubHeader = hasSubHeader && (
-    <div className={'border-b-bossanova-500 border-b-2'}>{subHeader}</div>
+    <div
+      className={
+        'border-b-bossanova-500 after:bg-bossanova-500 border-b-2 text-sm uppercase after:block after:h-1 after:w-0 after:transition-all group-hover:after:w-full'
+      }
+    >
+      {subHeader}
+    </div>
   );
 
   return (
     <div
       className={cn(
-        'hover:bg-bossanova-50 shadow-bossanova-800 bg-bossanova-100 outline-bossanova-500 text-bossanova-900 rounded-xl shadow-lg outline-3 transition sm:col-[1/2] sm:w-80',
+        'group hover:bg-bossanova-50 shadow-bossanova-800 outline-bossanova-500 text-bossanova-900 rounded-2xl shadow-lg outline-3 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:shadow-2xl sm:col-[1/2] sm:w-80',
         classNames,
       )}
     >

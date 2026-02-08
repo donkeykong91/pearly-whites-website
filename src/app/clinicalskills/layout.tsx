@@ -4,6 +4,9 @@ interface ClinicalSkills {
   children: ReactNode;
 }
 
+/**
+ * Layout shell for the clinical skills route.
+ */
 const ClinicalSkills = ({ children }: ClinicalSkills) => {
   return (
     <section className="flex flex-1 flex-col">

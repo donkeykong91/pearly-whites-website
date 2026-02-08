@@ -1,5 +1,8 @@
 import Card from '@/components/ui/Card';
 
+/**
+ * Clickable contact detail rendered in the business card body.
+ */
 const BusinessCardDetails = () => {
   const details = '✉ evey.occ@gmail.com';
 
@@ -13,6 +16,9 @@ const BusinessCardDetails = () => {
   );
 };
 
+/**
+ * Primary heading rendered in the business card.
+ */
 const BusinessCardTitle = () => {
   const header = 'Evey, RDH';
 
@@ -23,15 +29,24 @@ const BusinessCardTitle = () => {
   );
 };
 
+/**
+ * Secondary heading rendered directly below the card title.
+ */
 const BusinessCardSubHeader = () => {
   const subHeader = 'Dental Hygienist';
   return <p className="text-bossanova-800 tracking-wide">{subHeader}</p>;
 };
 
+/**
+ * Decorative line shown at the bottom of the business card.
+ */
 const SmallLine = () => {
   return <div className="bg-bossanova-300 mt-6 h-1 w-12 rounded-full"></div>;
 };
 
+/**
+ * Contact card composition for the `/contact` page.
+ */
 const BusinessCard = () => {
   return (
     <div className="self-center">
@@ -43,7 +58,7 @@ const BusinessCard = () => {
         classNames="p-2 sm:translate-x-3/2"
         headerClassNames="text-left"
         detailsClassNames="text-left"
-      ></Card>
+      />
     </div>
   );
 };

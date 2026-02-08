@@ -4,6 +4,9 @@ interface CertificationLayout {
   children: ReactNode;
 }
 
+/**
+ * Layout shell for the certifications route.
+ */
 const CertificationLayout = ({ children }: CertificationLayout) => {
   return (
     <section className="flex flex-1 flex-col">

@@ -1,10 +1,16 @@
 import { FlatCompat } from '@eslint/eslintrc';
 
+/**
+ * Bridges classic `.eslintrc` presets into flat config format.
+ */
 const compat = new FlatCompat({
   // import.meta.dirname is available after Node.js v20.11.0
   baseDirectory: import.meta.dirname,
 });
 
+/**
+ * ESLint rule set for Next.js + TypeScript + Prettier.
+ */
 const eslintConfig = [
   ...compat.config({
     extends: [

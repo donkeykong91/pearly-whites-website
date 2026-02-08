@@ -1,4 +1,3 @@
-import PrimaryButton from '@/components/ui/PrimaryButton';
 import { ITEMS } from '@/components/ui/Navbar/constants';
 import { useMenuItems } from '@/components/ui/Navbar/useMenuItems';
 
@@ -20,13 +19,13 @@ export const DropdownMenu = ({ isMenuClicked }: DropdownMenu) => {
     <>
       {isMenuClicked && (
         <div
-          className={`col-[1/3] overflow-hidden px-2 md:hidden ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
+          className={`border-surface-border bg-surface col-[1/3] origin-top overflow-hidden rounded-xl border px-2 shadow-lg backdrop-blur-sm transition-all duration-300 md:hidden ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
         >
           <ul className="items-center space-y-4 py-4">{menuItems}</ul>
         </div>
       )}
       <div
-        className={`border-bossanova-300 bg-bossanova-200 outline-bossanova-600 top-full right-0 hidden w-fit origin-top overflow-hidden rounded-md border-t px-2 outline-3 transition-all duration-300 ease-in-out md:absolute md:block ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
+        className={`border-surface-border bg-surface top-full right-0 hidden w-fit origin-top overflow-hidden rounded-xl border px-2 shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out md:absolute md:block ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
       >
         <ul className="items-center space-y-4 py-4">{menuItems}</ul>
       </div>

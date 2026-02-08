@@ -4,6 +4,9 @@ interface IntroLayout {
   children: ReactNode;
 }
 
+/**
+ * Layout shell for the intro page route group.
+ */
 const IntroLayout = ({ children }: IntroLayout) => {
   return (
     <section className="flex flex-1 flex-col">

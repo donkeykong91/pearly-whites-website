@@ -4,6 +4,9 @@ interface ContactLayout {
   children: ReactNode;
 }
 
+/**
+ * Layout shell for the contact route.
+ */
 const ContactLayout = ({ children }: ContactLayout) => {
   return (
     <section className="flex flex-1 flex-col">

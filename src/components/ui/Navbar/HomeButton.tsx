@@ -1,4 +1,5 @@
-import { useRouter } from 'next/navigation';
+import { cn } from '@/components/ui/utils/cn';
+import { usePathname, useRouter } from 'next/navigation';
 /**
  * Displays the menu button to go back to homepage.
  * @constructor
@@ -7,6 +8,8 @@ export const HomeButton = () => {
   const HOME = 'Evey Hygiene';
 
   const router = useRouter();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   return (
     <div className="flex">
@@ -14,7 +17,13 @@ export const HomeButton = () => {
         onClick={() => {
           router.push('/');
         }}
-        className="bg-bossanova-300 text-bossanova-800 group-hover:bg-bossanova-50 col-[2/3] w-full cursor-pointer rounded-md px-3 py-1 font-bold text-nowrap outline-3 transition duration-300 md:w-fit md:hover:bg-purple-300"
+        className={cn(
+          'col-[2/3] w-full cursor-pointer rounded-xl px-3 py-1.5 font-bold text-nowrap transition duration-300 md:w-fit',
+          isHome
+            ? 'bg-bossanova-700 text-bossanova-50 shadow-bossanova-500/50 shadow-md'
+            : 'bg-bossanova-300 text-bossanova-800 hover:bg-bossanova-200',
+        )}
+        aria-current={isHome ? 'page' : undefined}
       >
         {HOME}
       </button>
