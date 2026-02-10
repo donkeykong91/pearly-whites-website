@@ -16,5 +16,7 @@ export const MenuBar = ({
 }: MenuBarProps) => {
   const menuItems = useMenuItems({ items: ITEMS, revealedCount, startIndex });
 
-  return <ul className="hidden items-center gap-3 2xl:flex">{menuItems}</ul>;
+  return (
+    <ul className="hidden items-center gap-2 xl:flex 2xl:gap-3">{menuItems}</ul>
+  );
 };

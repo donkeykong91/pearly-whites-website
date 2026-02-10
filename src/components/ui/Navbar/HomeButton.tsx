@@ -18,7 +18,7 @@ export const HomeButton = () => {
           router.push('/');
         }}
         className={cn(
-          'col-[2/3] w-full cursor-pointer rounded-xl px-3 py-1.5 font-bold text-nowrap transition duration-300 md:w-fit',
+          'col-[2/3] w-full cursor-pointer rounded-xl px-3 py-2 text-sm font-bold whitespace-nowrap transition duration-300 md:w-fit',
           isHome
             ? 'bg-bossanova-700 text-bossanova-50 shadow-bossanova-500/50 shadow-md'
             : 'bg-bossanova-300 text-bossanova-800 hover:bg-bossanova-200',

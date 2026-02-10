@@ -8,7 +8,7 @@ const BusinessCardDetails = () => {
 
   return (
     <a
-      className="text-bossanova-600 hover:text-bossanova-800"
+      className="text-bossanova-600 hover:text-bossanova-800 inline-block text-sm break-all sm:text-base"
       href="mailto:evey.occ@gmail.com"
     >
       {details}
@@ -24,7 +24,9 @@ const BusinessCardTitle = () => {
 
   return (
     <>
-      <h2 className="text-bossanova-800 font-semibold">{header}</h2>
+      <h2 className="text-bossanova-800 text-lg font-semibold sm:text-xl">
+        {header}
+      </h2>
     </>
   );
 };
@@ -34,14 +36,16 @@ const BusinessCardTitle = () => {
  */
 const BusinessCardSubHeader = () => {
   const subHeader = 'Dental Hygienist';
-  return <p className="text-bossanova-800 tracking-wide">{subHeader}</p>;
+  return (
+    <p className="text-bossanova-800 text-sm tracking-wide">{subHeader}</p>
+  );
 };
 
 /**
  * Decorative line shown at the bottom of the business card.
  */
 const SmallLine = () => {
-  return <div className="bg-bossanova-300 mt-6 h-1 w-12 rounded-full"></div>;
+  return <div className="bg-bossanova-300 mt-5 h-1 w-12 rounded-full"></div>;
 };
 
 /**
@@ -49,13 +53,13 @@ const SmallLine = () => {
  */
 const BusinessCard = () => {
   return (
-    <div className="self-center">
+    <div className="col-[1/5] flex w-full justify-center self-center px-1 sm:px-0">
       <Card
         title={<BusinessCardTitle />}
         details={<BusinessCardDetails />}
         subHeader={<BusinessCardSubHeader />}
         smallLine={<SmallLine />}
-        classNames="p-2 sm:translate-x-3/2"
+        classNames="w-full max-w-md"
         headerClassNames="text-left"
         detailsClassNames="text-left"
       />

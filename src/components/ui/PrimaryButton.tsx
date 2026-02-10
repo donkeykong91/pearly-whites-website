@@ -28,7 +28,7 @@ const PrimaryButton = ({ children, href = '' }: PrimaryButtonProps) => {
         router.push(routePath);
       }}
       className={cn(
-        'w-full cursor-pointer rounded-xl px-3 py-1.5 font-semibold tracking-wide text-nowrap transition-all duration-300 ease-out md:px-4',
+        'w-full cursor-pointer rounded-xl px-3 py-2 text-sm leading-tight font-semibold tracking-wide whitespace-normal transition-all duration-300 ease-out sm:whitespace-nowrap md:px-4',
         isActive
           ? 'bg-bossanova-700 text-bossanova-50 shadow-bossanova-500/45 shadow-lg'
           : 'bg-bossanova-300/85 text-bossanova-900 shadow-bossanova-300/40 hover:bg-bossanova-200 hover:shadow-bossanova-300/40 shadow-md hover:-translate-y-0.5 hover:shadow-lg',

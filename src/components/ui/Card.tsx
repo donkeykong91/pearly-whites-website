@@ -49,13 +49,13 @@ const Card = ({
   return (
     <div
       className={cn(
-        'group hover:bg-bossanova-50 shadow-bossanova-800 outline-bossanova-500 text-bossanova-900 rounded-2xl shadow-lg outline-3 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:shadow-2xl sm:col-[1/2] sm:w-80',
+        'group hover:bg-bossanova-50 shadow-bossanova-800 outline-bossanova-500 text-bossanova-900 w-full max-w-[22rem] rounded-2xl px-4 py-3 shadow-lg outline-3 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:shadow-2xl sm:max-w-sm',
         classNames,
       )}
     >
       <header
         className={cn(
-          `border-b-bossanova-500 ${withSubHeader} text-center text-2xl`,
+          `border-b-bossanova-500 ${withSubHeader} text-center text-xl leading-tight font-semibold sm:text-2xl`,
           headerClassNames,
         )}
       >
@@ -64,8 +64,10 @@ const Card = ({
 
       {showSubHeader}
 
-      <div className={cn('pt-4 text-center', detailsClassNames)}>
-        <article className="px-2">{details}</article>
+      <div className={cn('pt-3 text-center sm:pt-4', detailsClassNames)}>
+        <article className="px-1 text-sm leading-relaxed sm:px-2 sm:text-base">
+          {details}
+        </article>
       </div>
 
       {smallLine || null}

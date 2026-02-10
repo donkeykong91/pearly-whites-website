@@ -29,7 +29,7 @@ const Navbar = ({ revealedCount = Number.MAX_SAFE_INTEGER }: NavbarProps) => {
     );
 
   return (
-    <nav className="group relative grid w-full grid-cols-[1fr_10fr] items-center gap-2 px-3 py-3 transition sm:justify-between md:flex">
+    <nav className="group relative grid w-full grid-cols-[1fr_auto] items-center gap-2 px-2 py-2.5 transition sm:px-3 sm:py-3 md:flex md:justify-between">
       <div className={getRevealClass(1)}>
         <HomeButton />
       </div>

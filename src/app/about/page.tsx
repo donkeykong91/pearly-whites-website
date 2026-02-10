@@ -9,8 +9,8 @@ const AboutPage = () => {
   const TITLE = '👋The Hygienist is in!!👩‍⚕️';
 
   return (
-    <div className="self-center">
-      <Card title={TITLE} details={DETAILS} classNames="sm:translate-x-1/2" />
+    <div className="col-[1/5] flex w-full justify-center self-center px-1 sm:px-0">
+      <Card title={TITLE} details={DETAILS} classNames="w-full max-w-md" />
     </div>
   );
 };
