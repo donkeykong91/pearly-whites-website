@@ -20,7 +20,7 @@ const Header = ({
   revealedCount = Number.MAX_SAFE_INTEGER,
 }: HeaderProps) => {
   return (
-    <header className={cn('sticky top-0 z-40 pt-4', className)}>
+    <header className={cn('sticky top-0 z-40 pt-3 sm:pt-4', className)}>
       <div
         className={cn(
           'w-full rounded-2xl border shadow-lg transition-colors duration-[1800ms] ease-out',

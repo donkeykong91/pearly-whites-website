@@ -19,15 +19,15 @@ export const DropdownMenu = ({ isMenuClicked }: DropdownMenu) => {
     <>
       {isMenuClicked && (
         <div
-          className={`border-surface-border bg-surface col-[1/3] origin-top overflow-hidden rounded-xl border px-2 shadow-lg backdrop-blur-sm transition-all duration-300 md:hidden ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
+          className={`border-surface-border bg-surface col-[1/3] mt-1 w-full origin-top overflow-hidden rounded-xl border px-2 shadow-lg backdrop-blur-sm transition-all duration-300 md:hidden ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
         >
-          <ul className="items-center space-y-4 py-4">{menuItems}</ul>
+          <ul className="items-center space-y-3 py-3">{menuItems}</ul>
         </div>
       )}
       <div
-        className={`border-surface-border bg-surface top-full right-0 hidden w-fit origin-top overflow-hidden rounded-xl border px-2 shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out md:absolute md:block ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
+        className={`border-surface-border bg-surface top-full right-0 hidden w-fit origin-top overflow-hidden rounded-xl border px-2 shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out xl:absolute xl:block ${isMenuClicked ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
       >
-        <ul className="items-center space-y-4 py-4">{menuItems}</ul>
+        <ul className="items-center space-y-3 py-3">{menuItems}</ul>
       </div>
     </>
   );

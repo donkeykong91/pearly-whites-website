@@ -75,7 +75,7 @@ const SiteShell = ({ children }: SiteShellProps) => {
 
   return (
     <SiteEntranceContext.Provider value={{ isEntranceDone }}>
-      <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-3 sm:px-6 lg:px-8">
         <Header
           isSpreadStarted={isSpreadStarted}
           showContent={showHeaderContent}
@@ -83,7 +83,7 @@ const SiteShell = ({ children }: SiteShellProps) => {
           className={`transition-transform duration-[1800ms] ease-out ${isSpreadStarted ? 'translate-y-0' : 'translate-y-[calc(50vh-3rem)]'}`}
         />
 
-        <main className="flex flex-1 py-6">
+        <main className="flex flex-1 py-4 sm:py-6">
           <PageDropFadeIn
             className="flex w-full flex-1 flex-col"
             disableOnPaths={['/']}

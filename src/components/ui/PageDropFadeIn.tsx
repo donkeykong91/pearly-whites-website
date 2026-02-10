@@ -22,6 +22,7 @@ const PageDropFadeIn = ({
   const [visible, setVisible] = useState(true);
   const [ready, setReady] = useState(true);
   const [animate, setAnimate] = useState(true);
+
   const pathname = usePathname();
   const normalizedPathname = useMemo(() => {
     if (!pathname) return pathname;
@@ -40,8 +41,7 @@ const PageDropFadeIn = ({
 
   const shouldSkipAnimation =
     !isEnabled ||
-    normalizedPathname === null ||
-    normalizedPathname === undefined ||
+    !normalizedPathname ||
     normalizedDisabledPaths.includes(normalizedPathname);
 
   const isRunnable = visible && animate;

@@ -5,10 +5,9 @@ import Accordion from '@/components/ui/Accordion/Accordion';
  * @constructor
  */
 const CertificationsPage = () => {
-  // Move accordion to middle
   return (
     <Accordion
-      className="col-[2/3] self-center sm:translate-x-1/2"
+      className="col-[1/5] mx-auto w-full max-w-2xl self-center px-1 sm:px-0"
       autoFocusFirstItem
     />
   );

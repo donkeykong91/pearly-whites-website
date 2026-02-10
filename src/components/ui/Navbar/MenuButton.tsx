@@ -12,7 +12,7 @@ interface MenuButton {
 export const MenuButton = ({ toggleMenu, isMenuClicked }: MenuButton) => {
   return (
     <button
-      className={`row-[1/2] cursor-pointer justify-self-center rounded-lg p-1 transition-transform 2xl:hidden ${isMenuClicked ? 'rotate-180' : 'rotate-0'}`}
+      className={`row-[1/2] cursor-pointer justify-self-end rounded-lg p-1.5 transition-transform xl:hidden ${isMenuClicked ? 'rotate-180' : 'rotate-0'}`}
       onClick={toggleMenu}
       aria-label={isMenuClicked ? 'Close menu' : 'Open menu'}
     >

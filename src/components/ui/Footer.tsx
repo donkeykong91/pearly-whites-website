@@ -16,7 +16,7 @@ const Footer = ({
   showContent = true,
 }: FooterProps) => {
   return (
-    <div className={cn('flex w-full justify-center pb-5', className)}>
+    <div className={cn('flex w-full justify-center pb-4 sm:pb-5', className)}>
       <div
         className={cn(
           'w-full rounded-xl border shadow-lg transition-colors duration-[1800ms] ease-out',

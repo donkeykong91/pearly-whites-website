@@ -1,10 +1,16 @@
 import './globals.scss';
 import { ReactNode } from 'react';
+import type { Viewport } from 'next';
 import SiteShell from '../components/ui/SiteShell';
 
 interface RootLayout {
   children: ReactNode;
 }
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 /**
  * The main layout for the website.
